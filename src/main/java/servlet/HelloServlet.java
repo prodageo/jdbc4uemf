@@ -55,7 +55,7 @@ public class HelloServlet extends HttpServlet {
 				
 			} catch (Exception e) {
 				// e.printStackTrace();
-			        out.write("erreur en SQL".getBytes());
+			        out.write(dbUrl.getBytes());
 			}            
         out.write("hello heroku".getBytes());
         out.flush();
