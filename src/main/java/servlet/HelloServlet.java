@@ -30,12 +30,13 @@ public class HelloServlet extends HttpServlet {
         // URISyntaxException, SQLException 
             
         ServletOutputStream out = resp.getOutputStream();
+	String dbUrl ;
             
 		try {
 			
 			// URI dbUri = new URI(System.getenv("DATABASE_URL"));
-	    		String dbUrl = System.getenv("JDBC_DATABASE_URL");
     			Connection connection = DriverManager.getConnection(dbUrl);
+	    		dbUrl = System.getenv("JDBC_DATABASE_URL");
 
 			/*
 			String username = dbUri.getUserInfo().split(":")[0];
