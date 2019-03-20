@@ -31,11 +31,13 @@ public class HelloServlet extends HttpServlet {
             
         ServletOutputStream out = resp.getOutputStream();
 	String dbUrl ;
+	String dbUrl4output = "vide" ;
             
 		try {
 			
 			// URI dbUri = new URI(System.getenv("DATABASE_URL"));
 	    		dbUrl = System.getenv("JDBC_DATABASE_URL");
+			dbUrl4output = dbUrl ;
     			Connection connection = DriverManager.getConnection(dbUrl);
 
 			/*
@@ -56,7 +58,7 @@ public class HelloServlet extends HttpServlet {
 				
 			} catch (Exception e) {
 				// e.printStackTrace();
-			        out.write(dbUrl.getBytes());
+			        out.write(dbUrl4output.getBytes());
 			}            
         out.write("hello heroku".getBytes());
         out.flush();
