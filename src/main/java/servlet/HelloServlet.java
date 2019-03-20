@@ -35,8 +35,8 @@ public class HelloServlet extends HttpServlet {
 		try {
 			
 			// URI dbUri = new URI(System.getenv("DATABASE_URL"));
-    			Connection connection = DriverManager.getConnection(dbUrl);
 	    		dbUrl = System.getenv("JDBC_DATABASE_URL");
+    			Connection connection = DriverManager.getConnection(dbUrl);
 
 			/*
 			String username = dbUri.getUserInfo().split(":")[0];
