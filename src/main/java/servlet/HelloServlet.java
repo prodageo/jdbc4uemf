@@ -29,15 +29,21 @@ public class HelloServlet extends HttpServlet {
 	{
         // URISyntaxException, SQLException 
             
+        ServletOutputStream out = resp.getOutputStream();
+            
 		try {
 			
-			URI dbUri = new URI(System.getenv("DATABASE_URL"));
+			// URI dbUri = new URI(System.getenv("DATABASE_URL"));
+	    		String dbUrl = System.getenv("JDBC_DATABASE_URL");
+    			Connection connection = DriverManager.getConnection(dbUrl);
 
+			/*
 			String username = dbUri.getUserInfo().split(":")[0];
 			String password = dbUri.getUserInfo().split(":")[1];
 			String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
 			Connection connection = DriverManager.getConnection(dbUrl, username, password);
-				
+			*/	
+			
 			Statement stmt = connection.createStatement();
 			stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
 			stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
@@ -48,10 +54,9 @@ public class HelloServlet extends HttpServlet {
 			}
 				
 			} catch (Exception e) {
-				e.printStackTrace();
+				// e.printStackTrace();
+			        out.write("erreur en SQL".getBytes());
 			}            
-            
-        ServletOutputStream out = resp.getOutputStream();
         out.write("hello heroku".getBytes());
         out.flush();
         out.close();
