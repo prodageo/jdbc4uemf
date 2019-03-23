@@ -57,8 +57,9 @@ public class HelloServlet extends HttpServlet {
 			}
 				
 			} catch (Exception e) {
-				// e.printStackTrace();
 			        out.write(dbUrl4output.getBytes());
+				out.write("\n");
+				e.printStackTrace();
 			}            
         out.write("hello heroku".getBytes());
         out.flush();
