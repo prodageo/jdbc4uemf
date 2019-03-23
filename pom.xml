@@ -36,6 +36,16 @@
         <artifactId>tomcat-jsp-api</artifactId>
         <version>${tomcat.version}</version>
     </dependency>
+    
+    
+      <!-- soource : https://stackoverflow.com/questions/40822839/heroku-and-java-no-suitable-driver -->
+              
+<dependency>
+  <groupId>org.postgresql</groupId>
+  <artifactId>postgresql</artifactId>
+  <version>9.4-1201-jdbc4</version>
+</dependency>
+    
   </dependencies>
   <build>
     <finalName>embeddedTomcatSample</finalName>
@@ -62,6 +72,19 @@
                 </execution>
             </executions>
         </plugin>
+      
+      <!-- soource : https://stackoverflow.com/questions/40822839/heroku-and-java-no-suitable-driver -->
+                  <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.4</version>
+            <executions>
+                <execution>
+                    <id>copy-dependencies</id>
+                    <phase>package</phase>
+                    <goals><goal>copy-dependencies</goal></goals>
+                </execution>
+            </executions>
+      
     </plugins>
   </build>
 </project>
