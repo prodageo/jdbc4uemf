@@ -8,5 +8,5 @@
 -- );
 
 create table FANTOME10 (
-    ID int not null,
+    ID int not null
 );
