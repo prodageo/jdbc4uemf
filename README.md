@@ -1,3 +1,11 @@
+# SUIVI
+## VERSION EN COURS : V2 - intégration de FlyWay
+
+## ARCHIVES
+ - V1 : appel JDBC opérationnel sur base Postgres sur HEROKU
+
+
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 # Create a Java Web Application using Embedded Tomcat
 
