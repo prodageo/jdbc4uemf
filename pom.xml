@@ -96,7 +96,7 @@
                     <!-- <user>sa</user> -->
 			
 		    <!-- source : https://flywaydb.org/documentation/maven/migrate.html -->	
-		    <baselineOnMigrate>false</baselineOnMigrate>
+		    <baselineOnMigrate>true</baselineOnMigrate>
                 </configuration>
 			      
                 <dependencies>
