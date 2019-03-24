@@ -1,4 +1,4 @@
-
+DROP TABLE IF EXISTS PERSON11 ;
 
 create table PERSON12 (
     ID int not null,
