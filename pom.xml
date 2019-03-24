@@ -96,6 +96,10 @@
                     <!-- <user>sa</user> -->
 			
 		    <!-- source : https://flywaydb.org/documentation/maven/migrate.html -->	
+	    <schemas>
+        <schema>public</schema>
+    </schemas>
+	    <cleanDisabled>false</cleanDisabled> <!-- default : false / should be true in PROD environment -->
 		    <baselineOnMigrate>true</baselineOnMigrate>
                 </configuration>
 			      
