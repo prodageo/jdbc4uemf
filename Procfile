@@ -1,2 +1,2 @@
 web: sh target/bin/webapp
-release: ./mvnw flyway:baseline && ./mvnw flyway:migrate
+release: pg:reset DATABASE_URL && ./mvnw flyway:migrate
