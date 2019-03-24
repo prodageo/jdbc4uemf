@@ -16,3 +16,9 @@ create table PERSON14 (
     ID int not null,
     NAME varchar(100) not null
 );
+
+create table PERSON15 (
+    ID int not null,
+    NAME varchar(100) not null
+);
+
