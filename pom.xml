@@ -86,8 +86,8 @@
 	              <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
-			      <version>6.0.0-beta</version> <!-- pour prise en charge mvn clean sur postgres 11 -->
-                <!-- <version>5.2.4</version> -->
+			      <!--  <version>6.0.0-beta</version>  --> <!-- pour prise en charge mvn clean sur postgres 11 -->
+                <version>5.2.4</version> <!-- -->
                 <configuration>
                     <url>
 					<!-- jdbc:h2:file:./target/foobar -->
