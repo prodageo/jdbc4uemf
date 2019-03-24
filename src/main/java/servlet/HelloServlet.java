@@ -61,7 +61,7 @@ public class HelloServlet extends HttpServlet {
 				out.write("\n".getBytes());
 				e.printStackTrace();
 			}            
-        out.write("hello heroku".getBytes());
+        out.write("hello heroku 10h52".getBytes());
         out.flush();
         out.close();
 
