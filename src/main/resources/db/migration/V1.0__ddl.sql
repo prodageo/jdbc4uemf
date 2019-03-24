@@ -6,3 +6,7 @@
 -- create table FANTOME (
 --    ID int not null,
 -- );
+
+create table FANTOME10 (
+    ID int not null,
+);
