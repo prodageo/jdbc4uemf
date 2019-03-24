@@ -104,8 +104,10 @@
 		    <baselineOnMigrate>true</baselineOnMigrate>
 			
 			<!-- https://www.achinepratiquejava.com/2018/04/spring-boot-flyway-java-tracabilite-et.html -->
+			<!-- initSql est executé par toutes les commandes : baseline, migrate, ... ! -->
 			<!-- <initSql>DROP TABLE IF EXISTS TABINIT ; CREATE TABLE TABINIT ( ID int not null )</initSql> -->
-			<initSql>DROP TABLE IF EXISTS flyway_schema_history</initSql>
+			<!-- <initSql>DROP TABLE IF EXISTS flyway_schema_history</initSql> -->
+			
 			<!-- pour la beauté du geste, on mets 0.9 pour que le premier script traité soit en 1.0 -->
 			<baselineVersion>0.9</baselineVersion>
 			
