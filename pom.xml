@@ -82,6 +82,28 @@
             </executions>
         </plugin>
       
+	  <!-- source : https://flywaydb.org/getstarted/firststeps/maven --> 
+	              <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.2.4</version>
+                <configuration>
+                    <url>
+					<!-- jdbc:h2:file:./target/foobar -->
+					<!-- https://devcenter.heroku.com/articles/running-database-migrations-for-java-apps -->
+					${env.JDBC_DATABASE_URL}
+					</url>
+                    <!-- <user>sa</user> -->
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.h2database</groupId>
+                        <artifactId>h2</artifactId>
+                        <version>1.4.197</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+	  
       <!-- soource : https://stackoverflow.com/questions/40822839/heroku-and-java-no-suitable-driver -->
       <!--            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
