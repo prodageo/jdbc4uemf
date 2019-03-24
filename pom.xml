@@ -39,12 +39,21 @@
     
     
       <!-- soource : https://stackoverflow.com/questions/40822839/heroku-and-java-no-suitable-driver -->
-              
+    <!--          
 <dependency>
   <groupId>org.postgresql</groupId>
   <artifactId>postgresql</artifactId>
   <version>9.4-1201-jdbc4</version>
 </dependency>
+    --> 
+    
+    <!-- source : https://github.com/heroku/devcenter-java-database/blob/master/devcenter-java-database-plain-jdbc/pom.xml -->
+            <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.0-801.jdbc4</version>
+        </dependenc    
+    
     
   </dependencies>
   <build>
@@ -74,7 +83,7 @@
         </plugin>
       
       <!-- soource : https://stackoverflow.com/questions/40822839/heroku-and-java-no-suitable-driver -->
-                  <groupId>org.apache.maven.plugins</groupId>
+      <!--            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
             <version>2.4</version>
             <executions>
@@ -84,7 +93,7 @@
                     <goals><goal>copy-dependencies</goal></goals>
                 </execution>
             </executions>
-      
+      -->
     </plugins>
   </build>
 </project>
