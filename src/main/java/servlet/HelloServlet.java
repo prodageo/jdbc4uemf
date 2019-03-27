@@ -14,7 +14,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
 
+// pour gerer les traces 
 import java.io.StringWriter;
+import java.io.PrintWriter;
 
 @WebServlet(
         name = "MyServlet", 
@@ -68,8 +70,9 @@ public class HelloServlet extends HttpServlet {
 				out.write("\n".getBytes());
 
 				// e.printStackTrace();
-			}            
-        out.write("hello heroku 10h52".getBytes());
+			}           
+	String the_message = "hello heroku" // + now() ; 
+        out.write("hello heroku".getBytes());
         out.flush();
         out.close();
 
