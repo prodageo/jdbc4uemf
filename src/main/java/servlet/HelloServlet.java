@@ -28,6 +28,7 @@ public class HelloServlet extends HttpServlet {
 			
 	{
         // URISyntaxException, SQLException 
+	StringWriter sw = new StringWriter();
             
         ServletOutputStream out = resp.getOutputStream();
 	String dbUrl ;
@@ -51,7 +52,7 @@ public class HelloServlet extends HttpServlet {
 			stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
 			stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
 			stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-			ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+			ResultSet rs = stmt.executeQuery("SELECT tick FROM pouf");
 			while (rs.next()) {
 				System.out.println("Read from DB: " + rs.getTimestamp("tick"));
 			}
@@ -59,7 +60,14 @@ public class HelloServlet extends HttpServlet {
 			} catch (Exception e) {
 			        out.write(dbUrl4output.getBytes());
 				out.write("\n".getBytes());
-				e.printStackTrace();
+			
+				e.printStackTrace(new PrintWriter(sw));
+				// Log.e(TAG, sw.toString());
+				String the_stack = sw.toString() ;
+				out.write(the_stack.getBytes());
+				out.write("\n".getBytes());
+
+				// e.printStackTrace();
 			}            
         out.write("hello heroku 10h52".getBytes());
         out.flush();
