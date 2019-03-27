@@ -71,7 +71,7 @@ public class HelloServlet extends HttpServlet {
 
 				// e.printStackTrace();
 			}           
-	String the_message = "hello heroku" // + now() ; 
+	String the_message = "hello heroku" ; // + now() ; 
         out.write("hello heroku".getBytes());
         out.flush();
         out.close();
