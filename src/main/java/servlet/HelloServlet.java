@@ -31,7 +31,6 @@ public class HelloServlet extends HttpServlet {
 	{
 
 	// URISyntaxException, SQLException 
-	StringWriter sw = new StringWriter();
             
         ServletOutputStream out = resp.getOutputStream();
 	String dbUrl ;
@@ -59,6 +58,8 @@ public class HelloServlet extends HttpServlet {
 			}
 				
 			} catch (Exception e) {
+			
+				StringWriter sw = new StringWriter();
 			        out.write("JDBC_DATABASE_URL :\n".getBytes());
 				out.write(dbUrl4output.getBytes());
 				out.write("\n".getBytes());
