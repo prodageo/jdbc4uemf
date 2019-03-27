@@ -29,7 +29,8 @@ public class HelloServlet extends HttpServlet {
             throws ServletException, IOException
 			
 	{
-        // URISyntaxException, SQLException 
+
+	// URISyntaxException, SQLException 
 	StringWriter sw = new StringWriter();
             
         ServletOutputStream out = resp.getOutputStream();
@@ -51,26 +52,23 @@ public class HelloServlet extends HttpServlet {
 			*/	
 			
 			Statement stmt = connection.createStatement();
-			stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
-			stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
-			stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-			ResultSet rs = stmt.executeQuery("SELECT tick FROM getMissionnaires2() ");
+			// stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM getMissionnaires()");
 			while (rs.next()) {
-				System.out.println("Read from DB: " + rs.getTimestamp("tick"));
+				System.out.println("Read from DB: " + rs.getTimestamp("query_nom"));
 			}
 				
 			} catch (Exception e) {
-			        out.write(dbUrl4output.getBytes());
+			        out.write("JDBC_DATABASE_URL :\n".getBytes());
+				out.write(dbUrl4output.getBytes());
 				out.write("\n".getBytes());
 			
 				e.printStackTrace(new PrintWriter(sw));
-				// Log.e(TAG, sw.toString());
 				String the_stack = sw.toString() ;
 				out.write(the_stack.getBytes());
 				out.write("\n".getBytes());
-
-				// e.printStackTrace();
 			}           
+
 	String the_message = "hello heroku" ; // + now() ; 
         out.write("hello heroku".getBytes());
         out.flush();
