@@ -35,7 +35,7 @@ public class txnscript {
      * @return              true si la reque'te a re'ussi
      */
 
-  public boolean creerEnrReservation ( String id_associe, DateTime date_arrivee ) 
+  public boolean creerEnrReservation ( String id_associe, Date date_arrivee ) 
   {
     return true ;
   }
