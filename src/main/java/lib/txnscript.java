@@ -20,7 +20,7 @@ public class txnscript {
      * @return              true si la reque'te a re'ussi
      */
 
-  public boolean creerAssocie ( String email_address, String name ) 
+  public int creerAssocie ( String email_address, String name ) 
   {
     return 1 ;
   }
