@@ -9,17 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.sql.*;
-
 import libinsa.txnscriptUtil ;
-
-// pour gerer les traces 
-import java.io.StringWriter;
-import java.io.PrintWriter;
-
+import java.time.LocalDateTime;
 
 
 @WebServlet(
@@ -34,57 +25,18 @@ public class HelloServlet extends HttpServlet {
 			
 	{
 
-	// URISyntaxException, SQLException 
-            
+		// out désigne l'écran de la page web, dans lequel on peut écrire
         ServletOutputStream out = resp.getOutputStream();
 
 		String log = "" ;
 		txnscriptUtil txnUtil = new txnscriptUtil() ;
 	
-		log = txnscriptUtil.initConnection () ;		
-		
+		log = txnscriptUtil.test () ;		
 		out.write ( log.getBytes());
-		
-/*		
-	String dbUrl ;
-	String dbUrl4output = "vide" ;
-            
-		try {
 			
-			// URI dbUri = new URI(System.getenv("DATABASE_URL"));
-	    		dbUrl = System.getenv("JDBC_DATABASE_URL");
-			dbUrl4output = dbUrl ;
-    			Connection connection = DriverManager.getConnection(dbUrl);
-
-			// String username = dbUri.getUserInfo().split(":")[0];
-			// String password = dbUri.getUserInfo().split(":")[1];
-			// String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
-			// Connection connection = DriverManager.getConnection(dbUrl, username, password);
-			
-			Statement stmt = connection.createStatement();
-			// stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-			ResultSet rs = stmt.executeQuery("SELECT * FROM getLabel() ");
-			while (rs.next()) {
-				// System.out.println("Read from DB: " + rs.getTimestamp("query_time"));
-				System.out.println("Read from DB: " + rs.getString("query_label"));
-			}
-				
-			} catch (Exception e) {
-			
-				StringWriter sw = new StringWriter();
-			        out.write("JDBC_DATABASE_URL :\n".getBytes());
-				out.write(dbUrl4output.getBytes());
-				out.write("\n".getBytes());
-			
-				e.printStackTrace(new PrintWriter(sw));
-				String the_stack = sw.toString() ;
-				out.write(the_stack.getBytes());
-				out.write("\n".getBytes());
-			}           
-*/
-			
-	String the_message = "hello heroku" ; // + now() ; 
+		String the_message = "hello heroku : " + LocalDateTime.now() + "\n" ; 
         out.write("hello heroku".getBytes());
+
         out.flush();
         out.close();
 

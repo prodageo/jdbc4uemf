@@ -14,9 +14,12 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
 
-// pour gerer les traces 
+// pour manage log of the exception
 import java.io.StringWriter;
 import java.io.PrintWriter;
+
+// For more information about this class, PLEASE DO VISIT :
+// http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=ProdageoLib.TxnscriptUtil
 
 public class txnscriptUtil {
 
@@ -24,6 +27,25 @@ public class txnscriptUtil {
 	static Connection connection = null ;
 	static Statement stmt = null ;
 
+	
+	
+	
+    public static String test ()
+	{
+	
+		String log1 = txnscriptUtil.initConnection () ;		
+		
+		String log2 = txnscriptUtil.selectExample () ;		
+
+		String log3 = txnscriptUtil.insertExample () ;		
+		
+		log = log1 + log2 + log3 ;
+
+		return log ;
+	}	
+	
+	// initialisation de la connection et d'un statement
+	// avant utilisation des fonctions comme selectExample ou insertExample
     public static String initConnection ()
 	{
 	// URISyntaxException, SQLException 
@@ -46,68 +68,58 @@ public class txnscriptUtil {
 			connection = DriverManager.getConnection(dbUrl, username, password);
 			*/	
 
-			} catch (Exception e) {
-			
-				StringWriter sw = new StringWriter();
-			    log = log + "JDBC_DATABASE_URL :\n" + dbUrl4output + "\n" ;
-				e.printStackTrace(new PrintWriter(sw));
-				String the_stack = sw.toString() ;
-				log = log + "\n" + the_stack ;
-			}           
+		} catch (Exception e) {
+				log = log + exceptionNiceDisplay(e) ;
+		}     
+		return log ;
+	}			
 
-// procedure stockee qui renvoie une liste d'enregistrements (SELECT)			
+	// procedure stockee qui renvoie une liste d'enregistrements (SELECT)			
+    public static String selectExample ()
+	{
+		if ( stmt == null ) { initConnection(); } ;
 		try {
-			ResultSet rs = stmt.executeQuery("SELECT * FROM getLabel() ");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM getLabel() ;");
 			while (rs.next()) {
 				// System.log.println("Read from DB: " + rs.getTimestamp("query_time"));
 				log = log + "\n" + "Read from DB: " + rs.getString("query_label") ;
-			}
+		}
 				
-			} catch (Exception e) {
-			
-				StringWriter sw = new StringWriter();
-				e.printStackTrace(new PrintWriter(sw));
-				String the_stack = sw.toString() ;
-				log = log + "\n" + the_stack ;
-			}           
+		} catch (Exception e) {
+				log = log + exceptionNiceDisplay(e) ;
+		} 
+		return log ;			
+	}
 
-// procedure stockee qui créer un enregistrement (INSERT)	
+	// procedure stockee qui créer un enregistrement (INSERT)	
+    public static String insertExample ()
+	{
+		if ( stmt == null ) { initConnection() ; } ;
+		
 		try {
-			// source : https://www.ibm.com/support/knowledgecenter/en/SSGU8G_11.70.0/com.ibm.jccids.doc/src/tpc/imjcc_t0057053.htm
-			// executeUpdate : Returns int, the number of rows affected by the execution of the SQL statement
-			int nbRecordInserted = stmt.executeUpdate("INSERT INTO test10 (label10) VALUES ('Minnie')", Statement.RETURN_GENERATED_KEYS);
-			log = log + "\n" + "Nb enr. insérés = " + nbRecordInserted ;
+			int nbRecordInserted = stmt.executeUpdate("INSERT INTO test10 (label10) VALUES ('Minnie') ;", Statement.RETURN_GENERATED_KEYS);
+			log = log + "\n" + "Nb record inserted by previous statement = " + nbRecordInserted + "\n" ;
 			ResultSet rs = stmt.getGeneratedKeys();
 			while (rs.next()) {
-  				int id_inserted = rs.getInt(1);     
-                		// Get automatically generated key value
-  				log = log + "\n" + "Automatically generated key value = " + id_inserted ;
+  				int id_inserted = rs.getInt(1); // Get automatically generated key value
+  				log = log + "\n" + "Automatically generated key value = " + id_inserted  + "\n" ;
 			}
-			// voir aussi : https://support.inductiveautomation.com/index.php?/Knowledgebase/Article/View/122/0/database-connection-errors-after-upgrading-postgresql-to-v10
-			
-			
-			
-			/* une requête INSERT provoque l'exception PSQLException avec l'operation executeQuery
-			ResultSet rs = stmt.executeQuery("INSERT INTO ticks VALUES (now())");
-			
-			// boucle pour récupérer les id créés par la requête INSERT
-			while (rs.next()) {
-				// System.log.println("Returned from insert: " + rs.getTimestamp("query_time"));
-				log = log + "\n" + "Returned from insert " ; // + rs.getString("query_label");
-			}
-			*/
-				
-			} catch (Exception e) {
-			
-				StringWriter sw = new StringWriter();
-				e.printStackTrace(new PrintWriter(sw));
-				String the_stack = sw.toString() ;
-				log = log + "\n" + the_stack ;
-			}           
+		} catch (Exception e) {
+				log = log + exceptionNiceDisplay(e) ;
+		}           
 			
 		return log ;
 
     }
 
+	// pour manage log of the exception
+    public static String exceptionNiceDisplay (Exception e)
+	{
+		StringWriter sw = new StringWriter();
+		e.printStackTrace(new PrintWriter(sw));
+		String the_stack = sw.toString() ;
+		return "\n" + the_stack + "\n" ;
+	}
+	
 	
 }
