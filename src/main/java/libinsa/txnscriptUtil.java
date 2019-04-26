@@ -78,10 +78,12 @@ public class txnscriptUtil {
 			int nbRecordInserted = stmt.executeUpdate("INSERT INTO ticks VALUES (now())", Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = stmt.getGeneratedKeys();
 			while (rs.next()) {
-  				int id_inserted = rs.getInt(1);     
-                // Get automatically generated key value
-  				System.out.println("Automatically generated key value = " + id_inserted );
+  				int id_inserted = rs.getInt(0);     
+                		// Get automatically generated key value
+  				log = log + "\n" + "Automatically generated key value = " + id_inserted ;
 			}
+			// voir aussi : https://support.inductiveautomation.com/index.php?/Knowledgebase/Article/View/122/0/database-connection-errors-after-upgrading-postgresql-to-v10
+			
 			
 			
 			/* une requête INSERT provoque l'exception PSQLException avec l'operation executeQuery
