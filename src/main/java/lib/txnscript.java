@@ -16,7 +16,7 @@ public class txnscript {
      *
      * @param email_address    adresse de messagerie de l'associe qui effectue la réservation (ie : solange.smith@gmail.com)
      * @param name  nom de la personne (ie : 23/07/2019)
-     * @return id attributé par la base
+     * @return id attributé par le SGBD
      */
 
   public int creerAssocie ( String email_address, String name ) 
@@ -31,11 +31,11 @@ public class txnscript {
      *
      * @param id_associe    adresse de messagerie de l'associe qui effectue la réservation (ie : solange.smith@gmail.com)
      * @param date_arrivee  date d'arrivée des amis de l'associe' dans la maison (ie : 23/07/2019)
-     * @return              true si la reque'te a re'ussi
+     * @return id attributé par le SGBD
      */
 
-  public boolean creerEnrReservation ( String id_associe, Date date_arrivee ) 
+  public int creerEnrReservation ( String id_associe, Date date_arrivee ) 
   {
-    return true ;
+    return 1 ;
   }
 }

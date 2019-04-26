@@ -32,7 +32,10 @@ public class txnscenario {
 
 	// ******************
 	// For INSA-ROUEN : put your the code here to call any operation defined in this class
-
+	the_message = "Run the application " + "\n" ; 		
+	txnscript txn = new txnscript() ;
+	
+	int i = txn.creerAssocie("mickey@disney.com", "MICKEY") ;
 	
 	
 	// ******************
