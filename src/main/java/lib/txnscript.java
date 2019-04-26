@@ -5,27 +5,6 @@ import libinsa.txnscriptUtil ;
 
 public class txnscript {
 
- /** 
-     * 
-     * La fonction test doit réutiliser l'ensemble des opérations de la classe
-	 * dans un enchaînement et avec des valeurs de paramètres qui permettent 
-     * de réaliser un scénario réaliste. Par exemple :
-	 *   - créer un enregistrement
-	 *   - vérifier qu'une recherche renvoie bien les valeurs communiquées à la création
-	 *   - etc ...
-	 * 
-     * @return cette chaîne simule un écran 
-	 *         dans le but de stocker
-	 *         l'ensemble des chaines que l'on souhaiterait afficher
-     */
- 
-  public String test()
-  {
-	String log = "" ;
-
-	return log ;
-  }
-
  // des exemples de fonction attendu dans de ce fichier sont fournis dans
  // http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=Umlp.EXU9912txnscript
   

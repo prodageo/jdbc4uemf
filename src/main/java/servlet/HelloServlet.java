@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import libinsa.txnscriptUtil ;
-import lib.txnscript ;
+import lib.txnscenario ;
 import java.time.LocalDateTime;
 
 
@@ -33,18 +32,8 @@ public class HelloServlet extends HttpServlet {
 		String the_message = "Hello from heroku : " + LocalDateTime.now() + "\n" ; 
         out.write(the_message.getBytes());
 		
-		the_message = "Run the example" + "\n" ; 		
-        out.write(the_message.getBytes());
-		
-		txnscriptUtil txnUtil = new txnscriptUtil() ;
-		log = txnUtil.test () ;		
-		out.write ( log.getBytes());
-
-		the_message = "Run the code for INSA-ROUEN" + "\n" ; 				
-        out.write(the_message.getBytes());
-		
-		txnscript txn = new txnscript() ;
-		log = txn.test () ;		
+		txnscenario the_scenario = new txnscenario() ;
+		log = the_scenario.test () ;		
 		out.write ( log.getBytes());
 		
         out.flush();
