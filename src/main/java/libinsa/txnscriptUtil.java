@@ -74,10 +74,12 @@ public class txnscriptUtil {
 		try {
 			// stmt.executeUpdate("INSERT INTO ticks VALUES (now())");			
 			ResultSet rs = stmt.executeQuery("INSERT INTO ticks VALUES (now())");
+			/*
 			while (rs.next()) {
 				// System.log.println("Returned from insert: " + rs.getTimestamp("query_time"));
 				log = log + "\n" + "Returned from insert " ; // + rs.getString("query_label");
 			}
+			*/
 				
 			} catch (Exception e) {
 			
