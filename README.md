@@ -4,6 +4,24 @@
 ## ARCHIVES
  - V1 : appel JDBC opérationnel sur base Postgres sur HEROKU
 
+## DEVELOPPEMENT SUR UN POSTE  LOCAL
+ - Récupération des sources : git clone xxx.git
+ - Edition des sources : éditeur de texte de votre choix (Sublime, GEdit, ...)
+ - Compilation : mvn compile
+ - Test : mvn test
+ - Observation des rapports de tests : navigateur target\site\surefire-report.html
+ - Génération de la doc du code : mvn javadoc:javadoc
+ - Observation de la doc du code : navigateur target\site\apidocs\index.html
+ 
+## DEVELOPPEMENT EN LIGNE
+ - Edition des sources : Github
+ - Test :
+ - Compilation : Heroku
+ - Test : 
+ - Observation des rapports de tests : 
+ - Génération de la doc du code : 
+ - Observation de la doc du code : 
+
 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
@@ -29,4 +47,4 @@ $ git clone git@github.com:heroku/devcenter-embedded-tomcat.git
 
 If you would like to create the application yourself, then follow the Dev Center guide on how to [Create a Java Web Application using Embedded Tomcat](https://devcenter.heroku.com/articles/create-a-java-web-application-using-embedded-tomcat).
 
-
+# 

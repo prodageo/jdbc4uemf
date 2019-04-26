@@ -14,9 +14,13 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
 
+import libinsa.txnscriptUtil ;
+
 // pour gerer les traces 
 import java.io.StringWriter;
 import java.io.PrintWriter;
+
+
 
 @WebServlet(
         name = "MyServlet", 
@@ -33,6 +37,15 @@ public class HelloServlet extends HttpServlet {
 	// URISyntaxException, SQLException 
             
         ServletOutputStream out = resp.getOutputStream();
+
+		String log = "" ;
+		txnscriptUtil txnUtil = new txnscriptUtil() ;
+	
+		log = txnscriptUtil.initConnection () ;		
+		
+		out.write ( log.getBytes());
+		
+/*		
 	String dbUrl ;
 	String dbUrl4output = "vide" ;
             
@@ -43,12 +56,10 @@ public class HelloServlet extends HttpServlet {
 			dbUrl4output = dbUrl ;
     			Connection connection = DriverManager.getConnection(dbUrl);
 
-			/*
-			String username = dbUri.getUserInfo().split(":")[0];
-			String password = dbUri.getUserInfo().split(":")[1];
-			String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
-			Connection connection = DriverManager.getConnection(dbUrl, username, password);
-			*/	
+			// String username = dbUri.getUserInfo().split(":")[0];
+			// String password = dbUri.getUserInfo().split(":")[1];
+			// String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
+			// Connection connection = DriverManager.getConnection(dbUrl, username, password);
 			
 			Statement stmt = connection.createStatement();
 			// stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
@@ -70,7 +81,8 @@ public class HelloServlet extends HttpServlet {
 				out.write(the_stack.getBytes());
 				out.write("\n".getBytes());
 			}           
-
+*/
+			
 	String the_message = "hello heroku" ; // + now() ; 
         out.write("hello heroku".getBytes());
         out.flush();
