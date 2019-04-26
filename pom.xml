@@ -50,6 +50,7 @@
   <groupId>org.postgresql</groupId>
   <artifactId>postgresql</artifactId>
   <version>9.4-1201-jdbc4</version>
+  <version>9.0-801.jdbc4</version> : does not support auto-generated keys to id inserted
 </dependency>
     --> 
     
@@ -57,7 +58,7 @@
     <dependency>
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.0-801.jdbc4</version>
+            <version>42.2.5</version>
     </dependency>    
     
     
