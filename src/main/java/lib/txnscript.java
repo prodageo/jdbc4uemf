@@ -2,12 +2,16 @@ package lib ;
 
 import java.util.Date;
 import libinsa.txnscriptUtil ;
+import java.sql.ResultSet;
 
 public class txnscript {
 
- // des exemples de fonction attendu dans de ce fichier sont fournis dans
+ // Pour la syntaxe et la sémantique des noms des opérations, voir
+ // http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=FilRouge.CoderTransactionScript
+
+ // des exemples de fonctions attendus dans de ce fichier sont fournis dans
  // http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=Umlp.EXU9912txnscript
-  
+ 
   
  /** 
      * 
@@ -38,4 +42,11 @@ public class txnscript {
   {
     return 1 ;
   }
+
+  public ResultSet RemonterEnrReservation ( Date date_arrivee ) 
+  {
+    return null ;
+  }
+
+  
 }
