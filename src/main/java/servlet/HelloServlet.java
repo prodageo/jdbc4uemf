@@ -52,9 +52,9 @@ public class HelloServlet extends HttpServlet {
 			
 			Statement stmt = connection.createStatement();
 			// stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-			ResultSet rs = stmt.executeQuery("SELECT * FROM getMissionnaires2() ");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM getLabel() ");
 			while (rs.next()) {
-				System.out.println("Read from DB: " + rs.getTimestamp("query_nom"));
+				System.out.println("Read from DB: " + rs.getTimestamp("query_label"));
 			}
 				
 			} catch (Exception e) {
