@@ -7,7 +7,7 @@ CREATE FUNCTION getLabel ()
 AS $$
 BEGIN
  RETURN QUERY SELECT
- nom
+ id, label10
  FROM
  TEST10 ;
 END; $$ 
