@@ -76,10 +76,10 @@ public class txnscriptUtil {
 			// source : https://www.ibm.com/support/knowledgecenter/en/SSGU8G_11.70.0/com.ibm.jccids.doc/src/tpc/imjcc_t0057053.htm
 			// executeUpdate : Returns int, the number of rows affected by the execution of the SQL statement
 			int nbRecordInserted = stmt.executeUpdate("INSERT INTO test10 (label10) VALUES ('Minnie')", Statement.RETURN_GENERATED_KEYS);
-			log = log + "\n" + "Nb enr. insérés = " + id_inserted ;
+			log = log + "\n" + "Nb enr. insérés = " + nbRecordInserted ;
 			ResultSet rs = stmt.getGeneratedKeys();
 			while (rs.next()) {
-  				int id_inserted = rs.getInt(0);     
+  				int id_inserted = rs.getInt(1);     
                 		// Get automatically generated key value
   				log = log + "\n" + "Automatically generated key value = " + id_inserted ;
 			}
