@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import libinsa.txnscriptUtil ;
+import lib.txnscript ;
 import java.time.LocalDateTime;
 
 
@@ -28,15 +29,24 @@ public class HelloServlet extends HttpServlet {
 		// out désigne l'écran de la page web, dans lequel on peut écrire
         ServletOutputStream out = resp.getOutputStream();
 
-		String log = "" ;
+ 		String log = "";
+		String the_message = "Hello from heroku : " + LocalDateTime.now() + "\n" ; 
+        out.write(the_message.getBytes());
+		
+		the_message = "Run the example" + "\n" ; 		
+        out.write(the_message.getBytes());
+		
 		txnscriptUtil txnUtil = new txnscriptUtil() ;
-	
-		log = txnscriptUtil.test () ;		
+		log = txnUtil.test () ;		
 		out.write ( log.getBytes());
-			
-		String the_message = "hello heroku : " + LocalDateTime.now() + "\n" ; 
-        out.write("hello heroku".getBytes());
 
+		the_message = "Run the code for INSA-ROUEN" + "\n" ; 				
+        out.write(the_message.getBytes());
+		
+		txnscript txn = new txnscript() ;
+		log = txn.test () ;		
+		out.write ( log.getBytes());
+		
         out.flush();
         out.close();
 
