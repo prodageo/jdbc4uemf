@@ -21,14 +21,14 @@ import java.io.PrintWriter;
 public class txnscriptUtil {
 
 	static String log ;
+	static Connection connection = null ;
+	static Statement stmt = null ;
 
     public static String initConnection ()
 	{
 	// URISyntaxException, SQLException 
 	String dbUrl ;
 	String dbUrl4output = "vide" ;
-	Connection connection = null ;
-	Statement stmt = null ;
             
 		try {
 			
@@ -37,6 +37,7 @@ public class txnscriptUtil {
 			dbUrl4output = dbUrl ;
     		connection = DriverManager.getConnection(dbUrl);
 			stmt = connection.createStatement();
+			log = log + "JDBC_DATABASE_URL :\n" + dbUrl4output + "\n" ;
 			
 			/*
 			String username = dbUri.getUserInfo().split(":")[0];
@@ -72,9 +73,21 @@ public class txnscriptUtil {
 
 
 		try {
-			// stmt.executeUpdate("INSERT INTO ticks VALUES (now())");			
+			// source : https://www.ibm.com/support/knowledgecenter/en/SSGU8G_11.70.0/com.ibm.jccids.doc/src/tpc/imjcc_t0057053.htm
+			// executeUpdate : Returns int, the number of rows affected by the execution of the SQL statement
+			int nbRecordInserted = stmt.executeUpdate("INSERT INTO ticks VALUES (now())", Statement.RETURN_GENERATED_KEYS);
+			ResultSet rs = stmt.getGeneratedKeys();
+			while (rs.next()) {
+  				java.math.BigDecimal id_inserted = rs.getBigDecimal(1);     
+                                // Get automatically generated key value
+  				System.out.println("Automatically generated key value = " + id_inserted );
+			}
+			
+			
+			/* une requête INSERT provoque l'exception PSQLException avec l'operation executeQuery
 			ResultSet rs = stmt.executeQuery("INSERT INTO ticks VALUES (now())");
-			/*
+			
+			// boucle pour récupérer les id créés par la requête INSERT
 			while (rs.next()) {
 				// System.log.println("Returned from insert: " + rs.getTimestamp("query_time"));
 				log = log + "\n" + "Returned from insert " ; // + rs.getString("query_label");
