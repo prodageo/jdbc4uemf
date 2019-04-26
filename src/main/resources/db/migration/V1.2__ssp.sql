@@ -1,15 +1,14 @@
-DROP FUNCTION IF EXISTS getMissionnaires2 ;
-CREATE FUNCTION getMissionnaires2 () 
+DROP FUNCTION IF EXISTS getLabel ;
+CREATE FUNCTION getLabel () 
  RETURNS TABLE (
- query_nom VARCHAR,
- query_prenom VARCHAR
+ query_id INTEGER,
+ query_label VARCHAR(100) 
 ) 
 AS $$
 BEGIN
  RETURN QUERY SELECT
- nom,
- prenom
+ nom
  FROM
- missionnaires ;
+ TEST10 ;
 END; $$ 
 LANGUAGE 'plpgsql';
