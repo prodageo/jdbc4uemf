@@ -78,8 +78,8 @@ public class txnscriptUtil {
 			int nbRecordInserted = stmt.executeUpdate("INSERT INTO ticks VALUES (now())", Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = stmt.getGeneratedKeys();
 			while (rs.next()) {
-  				java.math.BigDecimal id_inserted = rs.getBigDecimal(1);     
-                                // Get automatically generated key value
+  				int id_inserted = rs.getInt(1);     
+                // Get automatically generated key value
   				System.out.println("Automatically generated key value = " + id_inserted );
 			}
 			
