@@ -54,7 +54,8 @@ public class HelloServlet extends HttpServlet {
 			// stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
 			ResultSet rs = stmt.executeQuery("SELECT * FROM getLabel() ");
 			while (rs.next()) {
-				System.out.println("Read from DB: " + rs.getTimestamp("query_label"));
+				// System.out.println("Read from DB: " + rs.getTimestamp("query_time"));
+				System.out.println("Read from DB: " + rs.getString("query_label"));
 			}
 				
 			} catch (Exception e) {
