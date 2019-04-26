@@ -55,7 +55,7 @@ public class txnscriptUtil {
 				log = log + "\n" + the_stack ;
 			}           
 
-			
+// procedure stockee qui renvoie une liste d'enregistrements (SELECT)			
 		try {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM getLabel() ");
 			while (rs.next()) {
@@ -71,14 +71,14 @@ public class txnscriptUtil {
 				log = log + "\n" + the_stack ;
 			}           
 
-
+// procedure stockee qui créer un enregistrement (INSERT)	
 		try {
 			// source : https://www.ibm.com/support/knowledgecenter/en/SSGU8G_11.70.0/com.ibm.jccids.doc/src/tpc/imjcc_t0057053.htm
 			// executeUpdate : Returns int, the number of rows affected by the execution of the SQL statement
 			int nbRecordInserted = stmt.executeUpdate("INSERT INTO test10 VALUES ('Minnie')", Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = stmt.getGeneratedKeys();
 			while (rs.next()) {
-  				int id_inserted = rs.getInt(1);     
+  				int id_inserted = rs.getInt(0);     
                 		// Get automatically generated key value
   				log = log + "\n" + "Automatically generated key value = " + id_inserted ;
 			}
