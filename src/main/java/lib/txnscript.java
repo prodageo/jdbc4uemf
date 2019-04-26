@@ -22,10 +22,7 @@ public class txnscript {
   public String test()
   {
 	String log = "" ;
-	txnscriptUtil txnUtil = new txnscriptUtil() ;
-	
-	log = txnscriptUtil.initConnection () ;
-	
+
 	return log ;
   }
 

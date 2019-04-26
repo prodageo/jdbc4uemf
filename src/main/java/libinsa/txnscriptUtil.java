@@ -23,7 +23,7 @@ import java.io.PrintWriter;
 
 public class txnscriptUtil {
 
-	static String log ;
+	// static String log = "" ;
 	static Connection connection = null ;
 	static Statement stmt = null ;
 
@@ -32,7 +32,9 @@ public class txnscriptUtil {
 	
     public static String test ()
 	{
-	
+		String log = "" ;
+		
+
 		String log1 = txnscriptUtil.initConnection () ;		
 		
 		String log2 = txnscriptUtil.selectExample () ;		
@@ -48,6 +50,9 @@ public class txnscriptUtil {
 	// avant utilisation des fonctions comme selectExample ou insertExample
     public static String initConnection ()
 	{
+		String log = "" ;
+		
+
 	// URISyntaxException, SQLException 
 	String dbUrl ;
 	String dbUrl4output = "vide" ;
@@ -77,6 +82,8 @@ public class txnscriptUtil {
 	// procedure stockee qui renvoie une liste d'enregistrements (SELECT)			
     public static String selectExample ()
 	{
+		String log = "" ;
+		
 		if ( stmt == null ) { initConnection(); } ;
 		try {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM getLabel() ;");
@@ -94,6 +101,8 @@ public class txnscriptUtil {
 	// procedure stockee qui créer un enregistrement (INSERT)	
     public static String insertExample ()
 	{
+		String log = "" ;
+		
 		if ( stmt == null ) { initConnection() ; } ;
 		
 		try {
