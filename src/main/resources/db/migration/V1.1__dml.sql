@@ -1,1 +1,4 @@
-
+INSERT INTO TEST10
+(label10)
+VALUES
+('Mickey');
