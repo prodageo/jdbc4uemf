@@ -1,3 +1,5 @@
+// for more information, please visit : http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=FilRouge.CoderTransactionScript
+
 package lib ;
 
 import java.util.Date;
