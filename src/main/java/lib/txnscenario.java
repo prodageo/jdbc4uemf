@@ -1,3 +1,4 @@
+// for more information, please visit : http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=FilRouge.CoderTransactionScenario
 package lib ;
 
 import java.util.Date;
