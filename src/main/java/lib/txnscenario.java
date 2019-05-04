@@ -5,7 +5,7 @@ import java.util.Date;
 import libinsa.txnscriptUtil ;
 import lib.txnscript ;
 
-// types retournés par les opération txnscript
+// types pouvant être retournés par les opérations txnscript
 import java.sql.ResultSet;
 
 public class txnscenario {
