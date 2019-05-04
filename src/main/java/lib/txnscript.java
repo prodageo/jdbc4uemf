@@ -4,6 +4,8 @@ package lib ;
 
 import java.util.Date;
 import libinsa.txnscriptUtil ;
+
+// types retournés par les opérations JDBC
 import java.sql.ResultSet;
 
 public class txnscript {
