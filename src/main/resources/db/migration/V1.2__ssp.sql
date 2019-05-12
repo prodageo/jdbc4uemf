@@ -1,3 +1,6 @@
+-- ce fichier doit contenir autant de traitements que de traitements déclarée dans le fichier txnscript.java de votre projet
+-- voir http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=Filrouge.CoderPartieBd
+
 DROP FUNCTION IF EXISTS getLabel ;
 CREATE FUNCTION getLabel () 
  RETURNS TABLE (
