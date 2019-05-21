@@ -24,6 +24,7 @@
 
 ## Salon de discussion en ligne
  - https://join.slack.com/t/prodageo/shared_invite/enQtNjQxNTkyNzgxODI5LTc4ZDY4Mjk5MDdlODMwNjE4N2Y3MGZjMzhhZGE4Nzc5N2U5MjY1MzUyNzljNTJmMTAwNDAyMmU5YzY0YzM1ZGQ
+ - https://github.com/marketplace/slack-github
 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
