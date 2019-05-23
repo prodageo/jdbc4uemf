@@ -1,3 +1,7 @@
+# CONTEXTE
+ - http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=FilRouge.AppliExemplaireResa : domaine d'application à cette appli
+ - https://github.com/umlp/squelette2019 : synthèse techno IHM (SpringBoot + Thymeleaf) + persistance (JDBC)
+
 # SUIVI
 ## VERSION EN COURS : V2 - intégration de FlyWay
 
