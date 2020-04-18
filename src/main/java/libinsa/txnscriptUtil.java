@@ -124,10 +124,19 @@ public class txnscriptUtil {
 	    dbName = lastDbUrlPart.split("\\?")[0] ;
 	    logger.debug ( "getFormattedAdminerParameters - dbName : " + dbName ) ;
 	    
+
+	    
 	    String[] dbUrlPartsOfParts = lastDbUrlPart.split("&");
 	    // dbUrlPartsOfParts = [ pqrsdatabase?user=abcdef , password=xyz , sslmode=require ]
+
+
+	    String dbUserBulk = dbUrlPartsOfParts[0] ;
+	    dbUser = dbUserBulk.split("\\=")[1] ;	    
+	    logger.debug ( "getFormattedAdminerParameters - dbUserBulk : " + dbUserBulk ) ;
+	    
 	    String passwordBulk = dbUrlPartsOfParts[1] ;
 	    // passwordBulk = "password=xyz"
+	    logger.debug ( "getFormattedAdminerParameters - passwordBulk : " + passwordBulk ) ;
 	    
 	    String[] passwordParts = passwordBulk.split("=");
 	    // passwordParts = [ password , xyz ]
@@ -140,8 +149,8 @@ public class txnscriptUtil {
 	    "Système         : PostgreSQL\n" +
 	    "Serveur         : " + dbServer + "\n" +
 	    "Utilisateur     : " + dbServer + "\n" +
-	    "Mot de passe    : " + dbServer + "\n" +
-	    "Base de données : " + dbServer + "\n" ;
+	    "Mot de passe    : " + dbPass + "\n" +
+	    "Base de données : " + dbName + "\n" ;
 	    
 	    return formattedParameters ;
 	    
