@@ -107,7 +107,7 @@ public class txnscriptUtil {
 	    String passwordBulk = dbUrlPartsOfParts[1] ;
 	    // passwordBulk = "password=xyz"
 	    
-	    String[] passwordParts = passwordBulk.split("?");
+	    String[] passwordParts = passwordBulk.split("=");
 	    // passwordParts = [ password , xyz ]
 	    dbPass = passwordParts[1] ;
 	    
