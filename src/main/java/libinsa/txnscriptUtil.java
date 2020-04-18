@@ -100,11 +100,15 @@ public class txnscriptUtil {
 
 	    String[] dbUrlParts = jdbcUrl.split("/");
 	    String lastDbUrlPart = dbUrlParts[dbUrlParts.length-1] ;
+	    // lastDbUrlPart = pqrsdatabase?user=abcdef&password=xyz&sslmode=require
 	    
 	    String[] dbUrlPartsOfParts = lastDbUrlPart.split("&");
+	    // dbUrlPartsOfParts = [ pqrsdatabase?user=abcdef , password=xyz , sslmode=require ]
 	    String passwordBulk = dbUrlPartsOfParts[1] ;
+	    // passwordBulk = "password=xyz"
 	    
-	    String[] passwordParts = passwordParts.split("?");
+	    String[] passwordParts = passwordBulk.split("?");
+	    // passwordParts = [ password , xyz ]
 	    dbPass = passwordParts[1] ;
 	    
 	    return passwordParts ;
