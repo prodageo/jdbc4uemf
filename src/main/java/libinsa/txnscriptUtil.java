@@ -73,10 +73,9 @@ public class txnscriptUtil {
 			// https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java#using-the-jdbc_database_url
 			// JDBC_DATABASE_URL is CREATED by Heroku and it is not listed in the https://dashboard.heroku.com/apps/jdbc4uemf/settings
 			// where only DATABASE_URL is liste
-			String dbPassword = getPassword ( dbUrl4output ) ;
-			
+						
 			log = log + "JDBC_DATABASE_URL :\n" + dbUrl4output + "\n" ;
-			log = log + "pass :\n" + getPassword ( dbUrl4output ) + "\n" ;
+			log = log + getFormattedAdminerParameters ( dbUrl4output ) + "\n" ;
 			
 			/*
 			String username = dbUri.getUserInfo().split(":")[0];
@@ -91,6 +90,23 @@ public class txnscriptUtil {
 		return log ;
 	}			
 
+    public static String getFormattedAdminerParameters ( String jdbcUrl )
+    {
+	    // JDBC_DATABASE_URL format : jdbc:postgresql://machine.compute.amazonaws.com:5432/pqrsdatabase?user=abcdef&password=xyz&sslmode=require
+	    String dbServer = "machine.compute.amazonaws.com" ;
+	    String dbUser = "abcdef" ;
+	    String dbPass = "xyz" ;
+	    String dbName = "pqrsdatabase" ;
+	    String formattedParameters ;
+	    
+	    formattedParameters =
+	    "Système         : PostgreSQL\n" +
+	    "Serveur         : " + dbServer + "\n" +
+	    "Utilisateur     : " + dbServer + "\n" +
+	    "Mot de passe    : " + dbServer + "\n" +
+	    "Base de données : " + dbServer + "\n"
+    }
+	
     public static String getPassword ( String jdbcUrl )
     {
 	    String dbPass ;
