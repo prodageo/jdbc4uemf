@@ -105,8 +105,13 @@ public class txnscriptUtil {
 	    // JDBC_DATABASE_URL format : jdbc:postgresql://machine.compute.amazonaws.com:5432/pqrsdatabase?user=abcdef&password=xyz&sslmode=require
 
 	    String[] dbUrlParts = jdbcUrl.split("/");
+	    String dbServerWithPort = dbUrlParts[1] ;
+	    dbServer = dbServerWithPort.split(":")[1] ;
+	    
 	    String lastDbUrlPart = dbUrlParts[dbUrlParts.length-1] ;
 	    // lastDbUrlPart = pqrsdatabase?user=abcdef&password=xyz&sslmode=require
+	    return lastDbUrlPart ;
+	    /*
 	    dbName = lastDbUrlPart.split("?")[0] ;
 	    
 	    String[] dbUrlPartsOfParts = lastDbUrlPart.split("&");
@@ -129,6 +134,7 @@ public class txnscriptUtil {
 	    "Base de données : " + dbServer + "\n" ;
 	    
 	    return formattedParameters ;
+	    */
     }
 	
     public static String getPassword ( String jdbcUrl )
