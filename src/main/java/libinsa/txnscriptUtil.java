@@ -93,7 +93,7 @@ public class txnscriptUtil {
 
     public static String getPassword ( String jdbcUrl )
     {
-	    String[] dbPass ;
+	    String dbPass ;
 		    
 	    // DO USE JDBC_DATABASE_URL instead
 	    // JDBC_DATABASE_URL format : jdbc:postgresql://machine.compute.amazonaws.com:5432/pqrsdatabase?user=abcdef&password=xyz&sslmode=require
