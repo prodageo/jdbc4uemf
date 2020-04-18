@@ -120,8 +120,8 @@ public class txnscriptUtil {
 	    // lastDbUrlPart = pqrsdatabase?user=abcdef&password=xyz&sslmode=require
 	    logger.debug ( "getFormattedAdminerParameters - lastDbUrlPart : " + lastDbUrlPart ) ;
 	    
-	    
-	    dbName = lastDbUrlPart.split("?")[0] ;
+	    // https://coderanch.com/t/479464/java/java-util-regex-PatternSyntaxException-Dangling : ? est un meta character en regexp
+	    dbName = lastDbUrlPart.split("\\?")[0] ;
 	    logger.debug ( "getFormattedAdminerParameters - dbName : " + dbName ) ;
 	    
 	    String[] dbUrlPartsOfParts = lastDbUrlPart.split("&");
