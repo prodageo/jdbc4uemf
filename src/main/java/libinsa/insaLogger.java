@@ -5,7 +5,7 @@ public class insaLogger
 {
 
     private static volatile insaLogger instance = null;
-    private String className = null ;
+    private static String className = null ;
      
     // other fields / standard constructors / getters
   
