@@ -105,12 +105,12 @@ public class txnscriptUtil {
 	    
 	    // DO USE JDBC_DATABASE_URL instead
 	    // JDBC_DATABASE_URL format : jdbc:postgresql://machine.compute.amazonaws.com:5432/pqrsdatabase?user=abcdef&password=xyz&sslmode=require
-	    logger.debug ( jdbcUrl ) ;
+	    logger.debug ( "getFormattedAdminerParameters : " + jdbcUrl ) ;
 	    
 	    String[] dbUrlParts = jdbcUrl.split("/");
     
 	    String dbServerWithPort = dbUrlParts[1] ;
-	    logger.debug ( dbServerWithPort ) ;
+	    logger.debug ( "getFormattedAdminerParameters : " + dbServerWithPort ) ;
 	    
 	    // dbServer = dbServerWithPort.split(":")[1] ;
 	    // log ( dbServer ) ;
