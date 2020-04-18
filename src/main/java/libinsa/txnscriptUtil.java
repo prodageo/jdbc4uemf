@@ -109,11 +109,15 @@ public class txnscriptUtil {
 
 	    String[] dbUrlParts = jdbcUrl.split("/");
 	    String dbServerWithPort = dbUrlParts[1] ;
-	    dbServer = dbServerWithPort.split(":")[1] ;
+	    log ( dbServerWithPort ) ;
+	    
+	    // dbServer = dbServerWithPort.split(":")[1] ;
+	    // log ( dbServer ) ;
 	    
 	    String lastDbUrlPart = dbUrlParts[dbUrlParts.length-1] ;
 	    // lastDbUrlPart = pqrsdatabase?user=abcdef&password=xyz&sslmode=require
-	    return lastDbUrlPart ;
+	    log ( lastDbUrlPart ) ;
+	    
 	    /*
 	    dbName = lastDbUrlPart.split("?")[0] ;
 	    
@@ -135,9 +139,10 @@ public class txnscriptUtil {
 	    "Utilisateur     : " + dbServer + "\n" +
 	    "Mot de passe    : " + dbServer + "\n" +
 	    "Base de données : " + dbServer + "\n" ;
+	    */
 	    
 	    return formattedParameters ;
-	    */
+	    
     }
 	
     public static String getPassword ( String jdbcUrl )
@@ -150,6 +155,7 @@ public class txnscriptUtil {
 	    String[] dbUrlParts = jdbcUrl.split("/");
 	    String lastDbUrlPart = dbUrlParts[dbUrlParts.length-1] ;
 	    // lastDbUrlPart = pqrsdatabase?user=abcdef&password=xyz&sslmode=require
+
 	    
 	    String[] dbUrlPartsOfParts = lastDbUrlPart.split("&");
 	    // dbUrlPartsOfParts = [ pqrsdatabase?user=abcdef , password=xyz , sslmode=require ]
