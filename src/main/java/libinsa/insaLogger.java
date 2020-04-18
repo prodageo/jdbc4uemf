@@ -36,7 +36,7 @@ public class insaLogger
   {
     // https://devcenter.heroku.com/articles/logging
     // System.err.println( this.className + ":" + logMessage );
-    System.err.println( this.className + ":" + logMessage );
+    System.err.println( logMessage );
   }
 
 
