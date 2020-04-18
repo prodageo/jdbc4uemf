@@ -4,7 +4,8 @@
  - https://github.com/prodageo/jdbc4uemf : mise en oeuvre persistance (JDBC) only
 
 # SUIVI
-## VERSION EN COURS : V2 - intégration de FlyWay
+## VERSION EN COURS : 
+ - V2 - intégration de FlyWay, transactions SQL (cf src/main/resources/db/migration/V1.2__ssp.sql)
 
 ## ARCHIVES
  - V1 : appel JDBC opérationnel sur base Postgres sur HEROKU
