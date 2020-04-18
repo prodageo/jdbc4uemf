@@ -108,14 +108,14 @@ public class txnscriptUtil {
 
 	    String[] dbUrlParts = jdbcUrl.split("/");
 	    String dbServerWithPort = dbUrlParts[1] ;
-	    log ( dbServerWithPort ) ;
+	    logger.debug ( dbServerWithPort ) ;
 	    
 	    // dbServer = dbServerWithPort.split(":")[1] ;
 	    // log ( dbServer ) ;
 	    
 	    String lastDbUrlPart = dbUrlParts[dbUrlParts.length-1] ;
 	    // lastDbUrlPart = pqrsdatabase?user=abcdef&password=xyz&sslmode=require
-	    log ( lastDbUrlPart ) ;
+	    logger.debug ( lastDbUrlPart ) ;
 	    
 	    /*
 	    dbName = lastDbUrlPart.split("?")[0] ;
