@@ -4,7 +4,7 @@ package libinsa;
 public class logInsa 
 {
 
-  public static String log( String logMessage )
+  public static log( String logMessage )
   {
     // https://devcenter.heroku.com/articles/logging
     System.err.println( logMessage );
