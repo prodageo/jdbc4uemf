@@ -9,7 +9,7 @@ public class insaLogger
      
     // other fields / standard constructors / getters
   
-    private insaLogger(Class myClass)
+    private static insaLogger(Class myClass)
     {
         this.className = myClass.getName() ;
     }   
