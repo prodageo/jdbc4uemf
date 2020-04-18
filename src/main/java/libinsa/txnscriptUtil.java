@@ -96,8 +96,8 @@ public class txnscriptUtil {
 	    // DO USE JDBC_DATABASE_URL instead
 	    // JDBC_DATABASE_URL format : jdbc:postgresql://machine.compute.amazonaws.com:5432/pqrsdatabase?user=abcdef&password=xyz&sslmode=require
 
-	    String[] jdbcUrl = "http://test.com/testapp/test.dotest_id=1&test_name=SS".split("/");
-	    return jdbcUrl[jdbcUrl.length-1] ;
+	    String[] dbPass = jdbcUrl.split("/");
+	    return dbPass[dbPass.length-1] ;
     }
 	
 	
