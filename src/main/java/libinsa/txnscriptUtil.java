@@ -15,7 +15,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
 
-// pour manage log of the exception
+// to manage log of the exception
 import java.io.StringWriter;
 import java.io.PrintWriter;
 
@@ -52,7 +52,7 @@ public class txnscriptUtil {
 	// avant utilisation des fonctions comme selectExample ou insertExample
     public static String initConnection ()
 	{
-		String log = "" ;
+		String screen = "" ;
 		
 
 	// URISyntaxException, SQLException 
@@ -74,11 +74,10 @@ public class txnscriptUtil {
 			stmt = connection.createStatement();
 			// https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java#using-the-jdbc_database_url
 			// JDBC_DATABASE_URL is CREATED by Heroku and it is not listed in the https://dashboard.heroku.com/apps/jdbc4uemf/settings
-			// where only DATABASE_URL is liste
+			// where only DATABASE_URL is listed
 						
-			log = log + "JDBC_DATABASE_URL :\n" + dbUrl4output + "\n" ;
-			log = log + getFormattedAdminerParameters ( dbUrl4output ) + "\n" ;
-			
+	    		logger.debug ( ""JDBC_DATABASE_URL : " + dbUrl4output ) ;
+				      
 			/*
 			String username = dbUri.getUserInfo().split(":")[0];
 			String password = dbUri.getUserInfo().split(":")[1];
@@ -87,11 +86,14 @@ public class txnscriptUtil {
 			*/	
 
 		} catch (Exception e) {
-				log = log + exceptionNiceDisplay(e) ;
+				exceptionNiceDisplay(e) ;
+			        screen = screen + 
+			        logger.error ( ""JDBC_DATABASE_URL : " + dbUrl4output ) ;
 		}     
-		return log ;
+		return screen ;
 	}			
 
+    // format the data to be presented as the Adminer portal form
     public static String getFormattedAdminerParameters ( String jdbcUrl )
     {
 	    // JDBC_DATABASE_URL format : jdbc:postgresql://machine.compute.amazonaws.com:5432/pqrsdatabase?user=abcdef&password=xyz&sslmode=require
@@ -100,8 +102,6 @@ public class txnscriptUtil {
 	    String dbPass = "xyz" ;
 	    String dbName = "pqrsdatabase" ;
 	    String formattedParameters = "vide" ;
-	    
-	    
 	    
 	    // DO USE JDBC_DATABASE_URL instead
 	    // JDBC_DATABASE_URL format : jdbc:postgresql://machine.compute.amazonaws.com:5432/pqrsdatabase?user=abcdef&password=xyz&sslmode=require
@@ -146,12 +146,14 @@ public class txnscriptUtil {
 	     
 	    
 	    formattedParameters =
-	    "Système         : PostgreSQL\n" +
+	    "\n" +
+	    "Adminer Authentification\n" +
+	    "Systeme         : PostgreSQL\n" +
 	    "Serveur         : " + dbServer + "\n" +
 	    "Utilisateur     : " + dbUser + "\n" +
 	    "Mot de passe    : " + dbPass + "\n" +
-	    "Base de données : " + dbName + "\n" ;
-	    
+	    "Base de donnees : " + dbName + "\n" +
+	    "\n" ;
 	    return formattedParameters ;
 	    
     }
@@ -181,7 +183,7 @@ public class txnscriptUtil {
     }
 	
 	
-	// procedure stockee qui renvoie une liste d'enregistrements (SELECT)			
+    // procedure stockee qui renvoie une liste d'enregistrements (SELECT)			
     public static String selectExample ()
 	{
 		String log = "" ;
