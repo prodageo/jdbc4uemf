@@ -59,12 +59,24 @@ public class txnscriptUtil {
             
 		try {
 			
+			// Don't use DATABASE_URL environment variable (because it is not the format expected by getConnection)
 			// URI dbUri = new URI(System.getenv("DATABASE_URL"));
-	    	dbUrl = System.getenv("JDBC_DATABASE_URL");
+			// DATABASE_URL : postgres://abcdef:xyz@machine.amazonaws.com:5432/pqrsdatabase
+
+			// DO USE JDBC_DATABASE_URL instead
+			// JDBC_DATABASE_URL format : jdbc:postgresql://machine.compute.amazonaws.com:5432/pqrsdatabase?user=abcdef&password=xyz&sslmode=require
+	    	        dbUrl = System.getenv("JDBC_DATABASE_URL");
 			dbUrl4output = dbUrl ;
-    		connection = DriverManager.getConnection(dbUrl);
+    		        connection = DriverManager.getConnection(dbUrl);
+			
 			stmt = connection.createStatement();
+			// https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java#using-the-jdbc_database_url
+			// JDBC_DATABASE_URL is CREATED by Heroku and it is not listed in the https://dashboard.heroku.com/apps/jdbc4uemf/settings
+			// where only DATABASE_URL is liste
+			String dbPassword = getPassword ( dbUrl4output ) ;
+			
 			log = log + "JDBC_DATABASE_URL :\n" + dbUrl4output + "\n" ;
+			log = log + "pass :\n" + getPassword ( dbUrl4output ) + "\n" ;
 			
 			/*
 			String username = dbUri.getUserInfo().split(":")[0];
@@ -79,6 +91,16 @@ public class txnscriptUtil {
 		return log ;
 	}			
 
+    public static String getPassword ( String jdbcUrl )
+    {
+	    // DO USE JDBC_DATABASE_URL instead
+	    // JDBC_DATABASE_URL format : jdbc:postgresql://machine.compute.amazonaws.com:5432/pqrsdatabase?user=abcdef&password=xyz&sslmode=require
+
+	    String[] jdbcUrl = "http://test.com/testapp/test.dotest_id=1&test_name=SS".split("/");
+	    return jdbcUrl[jdbcUrl.length-1] ;
+    }
+	
+	
 	// procedure stockee qui renvoie une liste d'enregistrements (SELECT)			
     public static String selectExample ()
 	{
