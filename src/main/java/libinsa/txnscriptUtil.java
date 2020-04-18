@@ -111,7 +111,7 @@ public class txnscriptUtil {
 	    // passwordParts = [ password , xyz ]
 	    dbPass = passwordParts[1] ;
 	    
-	    return passwordParts ;
+	    return dbPass ;
     }
 	
 	
