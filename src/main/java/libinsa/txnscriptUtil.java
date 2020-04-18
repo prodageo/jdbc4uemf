@@ -1,5 +1,6 @@
 package libinsa;
 
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -20,6 +21,8 @@ import java.io.PrintWriter;
 
 // For more information about this class, PLEASE DO VISIT :
 // http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=ProdageoLib.TxnscriptUtil
+
+import libinsa.logInsa ;
 
 public class txnscriptUtil {
 
