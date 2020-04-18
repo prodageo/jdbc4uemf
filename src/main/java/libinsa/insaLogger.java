@@ -12,7 +12,13 @@ public class insaLogger
     {
         this.className = myClass.getName() ;
     }   
-     
+
+    public static insaLogger getLogger(Class theClass) {
+        return new insaLogger(theClass);
+    }
+
+    
+    /*
     public static insaLogger getLogger(Class theClass) {
         if (instance == null) {
             synchronized (insaLogger.class) {
@@ -23,7 +29,8 @@ public class insaLogger
         }
         return instance;
     }
-  
+*/
+    
   public static void debug( String logMessage )
   {
     // https://devcenter.heroku.com/articles/logging
