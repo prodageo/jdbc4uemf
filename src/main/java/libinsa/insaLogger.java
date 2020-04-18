@@ -9,9 +9,9 @@ public class insaLogger
      
     // other fields / standard constructors / getters
   
-    private static insaLogger(Class myClass)
+    private insaLogger(Class myClass)
     {
-        this.className = myClass.getName() ;
+        // this.className = myClass.getName() ;
     }   
 
     public static insaLogger getLogger(Class theClass) {
@@ -35,6 +35,7 @@ public class insaLogger
   public static void debug( String logMessage )
   {
     // https://devcenter.heroku.com/articles/logging
+    // System.err.println( this.className + ":" + logMessage );
     System.err.println( this.className + ":" + logMessage );
   }
 
