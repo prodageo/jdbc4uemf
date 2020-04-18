@@ -148,7 +148,7 @@ public class txnscriptUtil {
 	    formattedParameters =
 	    "Système         : PostgreSQL\n" +
 	    "Serveur         : " + dbServer + "\n" +
-	    "Utilisateur     : " + dbServer + "\n" +
+	    "Utilisateur     : " + dbUser + "\n" +
 	    "Mot de passe    : " + dbPass + "\n" +
 	    "Base de données : " + dbName + "\n" ;
 	    
