@@ -128,7 +128,7 @@ public class txnscriptUtil {
 	    "Mot de passe    : " + dbServer + "\n" +
 	    "Base de données : " + dbServer + "\n" ;
 	    
-	    return getFormattedAdminerParameters ;
+	    return formattedParameters ;
     }
 	
     public static String getPassword ( String jdbcUrl )
