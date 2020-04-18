@@ -99,7 +99,7 @@ public class txnscriptUtil {
 	    String dbUser = "abcdef" ;
 	    String dbPass = "xyz" ;
 	    String dbName = "pqrsdatabase" ;
-	    String formattedParameters ;
+	    String formattedParameters = "vide" ;
 	    
 	    
 	    
