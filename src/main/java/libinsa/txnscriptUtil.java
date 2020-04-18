@@ -22,15 +22,14 @@ import java.io.PrintWriter;
 // For more information about this class, PLEASE DO VISIT :
 // http://prodageo.insa-rouen.fr/wiki/pmwiki.php?n=ProdageoLib.TxnscriptUtil
 
-import libinsa.logInsa ;
+import libinsa.insaLogger ;
 
 public class txnscriptUtil {
 
 	// static String log = "" ;
 	static Connection connection = null ;
 	static Statement stmt = null ;
-
-	
+	private static insaLogger logger = insaLogger.getLogger(txnscriptUtil.class);
 	
 	
     public static String test ()
