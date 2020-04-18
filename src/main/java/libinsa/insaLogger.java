@@ -8,12 +8,12 @@ public class insaLogger
      
     // other fields / standard constructors / getters
   
-    private insaLogger(String myName)
+    private insaLogger(Class myName)
     {
         // this.name = myName;
     }   
      
-    public static insaLogger getLogger(String theClass) {
+    public static insaLogger getLogger(Class theClass) {
         if (instance == null) {
             synchronized (insaLogger.class) {
                 if (instance == null) {
