@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <!-- <tomcat.version>8.5.38</tomcat.version> -->
-    <tomcat.version>8.5.51</tomcat.version> <!-- Known high severity security vulnerability detected in org.apache.tomcat.embed:tomcat-embed-core >= 8.0.0, < 8.5.40 defined in pom.xml. -->
+    <tomcat.version>9.0.35</tomcat.version> <!-- Known high severity security vulnerability detected in org.apache.tomcat.embed:tomcat-embed-core >= 8.0.0, < 8.5.40 defined in pom.xml. -->
   </properties>
   <dependencies>
     <dependency>
